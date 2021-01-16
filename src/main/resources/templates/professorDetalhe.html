@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+ 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Detalhes Professor</title>
+</head>
+<body>
+
+
+	  <nav class="navbar navbar-light bg-info bg-gradient ">
+		  <div class="container-fluid">
+		     <a href="#!" class="navbar-brand mb-0 h1 fs-1 fw-bold" >EducaDev</a>
+		  </div>
+		</nav>
+	  
+		<div class="container mt-5">
+        	<div class="row">
+	      		<div class="col-10 text-info"><h2>Portal do professor</h2></div> 
+	      		<div class="col-2"><h4> <a href="/professores"> professores</a></h4></div> 
+	      	</div>
+	   </div>
+
+    <h3 class="text-center mt-5">Selecione um curso</h3>    
+
+	<div class="container mt-5">
+		<div class="card border-info mb-3">
+		  <div class="card-body">
+				<div class="form-group ">
+				    <b>Código: </b> <span class="text-info fw-bold" th:text="${professor.codigo}"></span>
+				    <br>
+				    <b>Nome: </b> <span class="text-info fw-bold" th:text="${professor.nome}"></span>
+				</div>	
+
+			     <form th:action="@{/associarCursoProfessor(codigoProfessor=${professor.codigo})}" method="POST">
+			        <label><b>Cursos:</b></label>
+			        <select name="id" required class="form-control form-select form-select-lg mb-3 col s-12">
+			            <option value="">Escolha o curso</option>
+			            <option th:each="curso : ${cursos}"
+			                        th:value="${curso.id}"
+			                        th:text="${curso.nome}">
+			            </option>
+			        </select>
+					<div class="form-group">
+		    			<input class="align-items-center btn btn-primary" type="submit" value="Salvar"  />
+			            <input class="btn btn-secondary" type="reset" value="Cancelar" />
+		  			</div>				        
+			    </form>  
+   			</div>	 
+       	</div>       
+    </div>
+    
+    
+    <br>
+    <br>
+    
+     <h3 class="text-center">Curso lecionado</h3>  
+    
+     <div class="container mx-auto" style="margin-left: 350px !important;">	 
+        <div class="col-8 mt-5">	     
+			<div class="container mt-3" th:each="curso : ${professor.cursos}" >
+				<div class="row row-cols-1 row-cols-md-3 g-4" >
+				  <div class="col">
+				    <div class="card border-info mb-3">
+				      <div class="card-body">
+				      	 <div class="row">
+						    <div class="col">
+						      <b>Id</b> <h2 class="text-info fw-bold" th:text="${curso.id}"></h2>
+						    </div>
+						    <div class="col">
+						     <b>Nome do curso</b> <h4 class="text-info fw-bold" th:text="${curso.nome}"></h4>
+						    </div>
+						    <div class="col">
+						     <b>Carga horária</b> <h2 class="text-info fw-bold" th:text="${curso.cargaHoraria}"></h2>
+						    </div>			      
+				    	</div>
+				      </div>
+				    </div>
+				  </div>
+		       </div>  		  
+		   	</div>	    
+	   </div>	    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+
+	
+	<!-- pasth, associarCursoProfessor, (parametros recebendio o id do professor)-->
+
+    
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</body>
+</html>

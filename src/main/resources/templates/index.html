@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <!-- Compiled and minified CSS -->
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+ 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title> Login </title>
+</head>
+	<body>
+
+	  <nav class="navbar navbar-light bg-danger bg-gradient ">
+		  <div class="container-fluid">
+		    <a href="#!" class="navbar-brand mb-0 h1 fs-1 fw-bold text-white" >EducaDev</a>
+			<p class="text-white mt-3" th:text="${user?.name}" ></p>
+		  </div>
+		</nav>
+	
+
+      <div class="container mt-5">
+	      <div class="col s12"><h2>Bem vindo ao curso de software EducaDev</h2></div> 
+	   </div>
+	   
+	   
+      <div class="container mt-5">	   
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+		  <div class="col">
+		    <div class="card border-primary mb-3">
+		      <div class="card-body">
+		        <h5 class="card-title text-primary">Alunos</h5>
+		         <p>Estude as melhores tecnologias do mercado</p>
+		         <a href="/alunos" class="card-title text-primary"> Cadastre os alunos </a>
+		      </div>
+		    </div>
+		  </div>
+		
+		  <div class="col">
+		    <div class="card border-dark mb-3">
+		      <div class="card-body">
+		        <h5 class="card-title text-dark">Cursos</h5>
+		        <p>Curso voltado a boas práticas e padrões de projeto</p>
+		        <a href="/cursos" class="card-title text-dark"> Cadastre os cursos </a>
+		      </div>
+		    </div>
+		  </div>
+		  		
+		  <div class="col">
+		    <div class="card border-info mb-3">
+		      <div class="card-body">
+		        <h5 class="card-title text-info">Professores</h5>
+		         <p>Aprenda com professores qualificados e experientes</p>
+		         <a class="card-title text-info" href="/professores"> Cadastre os professores </a>
+		      </div>
+		    </div>
+		  </div>
+		  
+		</div>	   
+	   </div>	   
+	   
+		
+		    <!-- Compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+ 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Alunos</title>
+    
+
+</head>
+
+<body>
+
+
+	  <nav class="navbar navbar-light bg-primary bg-gradient ">
+		  <div class="container-fluid">
+		     <a href="#!" class="navbar-brand mb-0 h1 fs-1 fw-bold text-white" >EducaDev</a>
+		  </div>
+		</nav>
+	  
+		<div class="container mt-5">
+        	<div class="row">
+	      		<div class="col-10 text-info"><h2>Portal do aluno</h2></div> 
+	      		<div class="col-2"><h4><a href="/alunos"> alunos </a></h4></div> 
+	      	</div>
+	   </div>
+
+    <h3 class="text-center mt-5">Editar informações</h3>    
+    
+	<div class="container mt-5">
+		<div class="card border-primary mb-3">
+		  <div class="card-body">
+	        <form th:action="@{/salvar-alunos}" th:object="${aluno}" method="POST" id="formAluno">
+	        
+				<div class="form-group">
+					<label class="text-primary" >Matricula</label> 
+					<span class="text-primary" th:text="${aluno.matricula}"></span>
+					<input class="form-control" type="hidden" th:value="${aluno.matricula}" th:field="${aluno.matricula}" name="matricula" />
+	  			</div>	   
+	  			
+	  			<div class="form-group">
+					<label>Nome</label> 
+					<input class="form-control" type="text" placeholder="Digite o nome" th:value="${aluno.nome}" name="nome" required/>
+	  			</div>	     
+	  	
+				<div class="form-group">
+				<label class="text-center">Editar curso</label>
+				<select class="form-control form-select form-select-lg mb-3 col s-12" aria-label="Default select example" name="curso" th:field="${aluno.curso}" required>
+					<option selected value=""> Escolha seu curso </option>
+	                <option th:each="curso: ${cursos}"
+	                        th:value="${curso.id}"
+	                        th:text="${curso.nome}">
+	                </option>
+				</select>
+			
+	  			</div>
+	  			
+				<div class="form-group col s12 ">
+	    			<input class="align-items-center btn btn-primary" type="submit" value="Salvar"  />
+		            <input class="btn btn-secondary" type="reset" value="Limpar" />
+	  			</div>	  			
+   	  			       	    
+	        </form>
+    	  </div>	 
+       </div>       
+    </div>
+    
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+    
+</body>
+
+</html>
